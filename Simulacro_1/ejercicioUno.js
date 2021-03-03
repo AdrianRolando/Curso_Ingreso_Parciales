@@ -53,196 +53,189 @@ function probarEjercicio()
 	var nombreGatoLiviano = "No hubo ingreso";
 	var razaGatoLiviano= "No hubo ingreso";
 	var menorEstadoMascota;
+	var continuar;
 
 	
-
-	for(var i=0; i<1; i++)
-	{
-		tipoMascota = prompt("Ingrese tipo de mascota (perro/gato/otra cosa");
-		while(tipoMascota != "perro" && tipoMascota != "gato" && tipoMascota != "otra cosa")
+		do
 		{
-			tipoMascota = prompt("Por favor ingrese un tipo de mascota válido");
-		}
-
-		tipoPelaje = prompt("Ingrese el largo del pelaje (corto/largo/sin pelo)");
-		while(tipoPelaje != "corto" && tipoPelaje != "largo" && tipoPelaje != "sin pelo")
-		{
-			tipoPelaje = prompt("Largo de pelaje incorrecto, ingrese nuevamente");
-		}
-
-		edadMascota = parseInt(prompt("Ingrese edad de la mascota"));
-		while(isNaN(edadMascota) || edadMascota == ""){
-
-			edadMascota = prompt("Edad incorrecta, ingrese nuevamente");
-		}
-
-		nombreMascota = prompt("Ingrese nombre de la mascota");
-		while(isNaN(nombreMascota) == false || nombreMascota == ""){
-
-			nombreMascota = prompt("Nombre incorrecto, ingrese nuevamente");
-		}
-
-		razaMascota = prompt("Ingrese raza de la mascota");
-		while(isNaN(razaMascota) == false || razaMascota == "")
-		{
-			razaMascota = prompt("Raza incorrecta, ingrese nuevamente");
-		}
-
-		pesoMascota = parseInt(prompt("Ingrese el peso de la mascota"));
-		while(isNaN(pesoMascota) || pesoMascota == ""){
-
-			pesoMascota = parseInt(prompt("Peso incorrecto, ingrese nuevamente"));
-		}
-
-		estadoClinico = prompt("Ingrese estado clínico (enfermo/internado/adopcion)");
-		while(isNaN(estadoClinico) == false || estadoClinico == "")
-		{
-			estadoClinico = prompt("Estado clínico incorrecto, ingrese nuevamente");
-		}
-
-		temperaturaCorporal = parseInt(prompt("Ingrese temperatura corporal (entre 34 y 38 grados)"));
-		while(isNaN(temperaturaCorporal) || temperaturaCorporal == ""|| temperaturaCorporal < 34 || temperaturaCorporal > 38)
-		{
-			temperaturaCorporal = parseInt(prompt("Temperatura incorrecta, ingrese nuevamente"));
-		}
-
 		
-		totalMascotas ++;
-		pesoTotalMascotas = pesoTotalMascotas + pesoMascota;
-		promedioPesoMascotas = pesoTotalMascotas / totalMascotas;
-
-		
-		if(tipoMascota == "perro") 
-		{
-			if(flagPerroMasPesado == true)
+			tipoMascota = prompt("Ingrese tipo de mascota (perro/gato/otra cosa");
+			while(tipoMascota != "perro" && tipoMascota != "gato" && tipoMascota != "otra cosa")
 			{
-				perroMasPesado = pesoMascota;
-				flagPerroMasPesado = false;
+				tipoMascota = prompt("Por favor ingrese un tipo de mascota válido");
 			}
-			else if(pesoMascota > perroMasPesado)
+
+			tipoPelaje = prompt("Ingrese el largo del pelaje (corto/largo/sin pelo)");
+			while(tipoPelaje != "corto" && tipoPelaje != "largo" && tipoPelaje != "sin pelo")
 			{
-				perroMasPesado = pesoMascota;
+				tipoPelaje = prompt("Largo de pelaje incorrecto, ingrese nuevamente");
 			}
-			else{
 
-				perroMasPesado = 0;
+			edadMascota = parseInt(prompt("Ingrese edad de la mascota"));
+			while(isNaN(edadMascota) || edadMascota == ""){
+
+				edadMascota = prompt("Edad incorrecta, ingrese nuevamente");
 			}
+
+			nombreMascota = prompt("Ingrese nombre de la mascota");
+			while(isNaN(nombreMascota) == false || nombreMascota == ""){
+
+				nombreMascota = prompt("Nombre incorrecto, ingrese nuevamente");
+			}
+
+			razaMascota = prompt("Ingrese raza de la mascota");
+			while(isNaN(razaMascota) == false || razaMascota == "")
+			{
+				razaMascota = prompt("Raza incorrecta, ingrese nuevamente");
+			}
+
+			pesoMascota = parseInt(prompt("Ingrese el peso de la mascota"));
+			while(isNaN(pesoMascota) || pesoMascota == ""){
+
+				pesoMascota = parseInt(prompt("Peso incorrecto, ingrese nuevamente"));
+			}
+
+			estadoClinico = prompt("Ingrese estado clínico (enfermo/internado/adopcion)");
+			while(isNaN(estadoClinico) == false || estadoClinico == "")
+			{
+				estadoClinico = prompt("Estado clínico incorrecto, ingrese nuevamente");
+			}
+
+			temperaturaCorporal = parseInt(prompt("Ingrese temperatura corporal (entre 34 y 38 grados)"));
+			while(isNaN(temperaturaCorporal) || temperaturaCorporal == ""|| temperaturaCorporal < 34 || temperaturaCorporal > 38)
+			{
+				temperaturaCorporal = parseInt(prompt("Temperatura incorrecta, ingrese nuevamente"));
+			}
+
 			
-		}
-		else if(tipoMascota == "otra cosa") 
-		{
-			ultimoNombreOtraCosa = nombreMascota;
+			totalMascotas ++;
+			pesoTotalMascotas = pesoTotalMascotas + pesoMascota;
+			promedioPesoMascotas = pesoTotalMascotas / totalMascotas;
+
+			
+			if(tipoMascota == "perro") 
+			{
+				if(flagPerroMasPesado == true)
+				{
+					perroMasPesado = pesoMascota;
+					flagPerroMasPesado = false;
+				}
+				else if(pesoMascota > perroMasPesado)
+				{
+					perroMasPesado = pesoMascota;
+				}
+				else{
+
+					perroMasPesado = 0;
+				}
 				
-		}
-		else if(tipoMascota == "gato" && tipoPelaje == "sin pelo"){
-			
-			if(flagMinPesoGato == true){
-				minPesoGato = pesoMascota;
-				nombreGatoLiviano = nombreMascota;
-				razaGatoLiviano = razaMascota;
-				flagMinPesoGato = false;
 			}
-			else if(pesoMascota < minPesoGato){
-				minPesoGato = pesoMascota;
-				nombreGatoLiviano = nombreMascota;
-				razaGatoLiviano = razaMascota;
+			else if(tipoMascota == "otra cosa") 
+			{
+				ultimoNombreOtraCosa = nombreMascota;
+					
 			}
-		}
-
-		
-		if(tipoMascota == "perro" || tipoMascota == "Gato")
-		{
-			contadorPerrosGatos++;
-		}
-
-		
-		
-		if(estadoClinico == "enfermo")
-		{
-			contadorEnfermos++;
-		}
-		else if(estadoClinico == "internado")
-		{
-			contadorInternados++;
-		}
-		else if(estadoClinico == "adopcion")
-		{
-			contadorAdopcion++;
-		}
-
-
-
-		if(contadorEnfermos < contadorAdopcion && contadorEnfermos < contadorInternados){
-
-			menorEstadoMascota = "Enfermo";
-		}
-		else if (contadorAdopcion < contadorEnfermos && contadorAdopcion < contadorInternados){
-			
-			menorEstadoMascota = "Adopcion";
-		}
-		else if (contadorInternados < contadorEnfermos && contadorInternados < contadorAdopcion){
-			
-			menorEstadoMascota = "Internado";
-		}
-
-
-		
-		if(tipoPelaje == "sin pelo" && flagMinTemperatura == true)
-		{
-			minTemperatura = temperaturaCorporal;
-			tipoMascotaMinTemp = tipoMascota;
-			flagMinTemperatura = false;
-		}
-		else if(temperaturaCorporal < minTemperatura){
+			else if(tipoMascota == "gato" && tipoPelaje == "sin pelo"){
 				
-			minTemperatura = temperaturaCorporal;
-			tipoMascotaMinTemp = tipoMascota;
+				if(flagMinPesoGato == true){
+					minPesoGato = pesoMascota;
+					nombreGatoLiviano = nombreMascota;
+					razaGatoLiviano = razaMascota;
+					flagMinPesoGato = false;
+				}
+				else if(pesoMascota < minPesoGato){
+					minPesoGato = pesoMascota;
+					nombreGatoLiviano = nombreMascota;
+					razaGatoLiviano = razaMascota;
+				}
+			}
+
+			
+			if(tipoMascota == "perro" || tipoMascota == "Gato")
+			{
+				contadorPerrosGatos++;
+			}
+
+			
+			
+			if(estadoClinico == "enfermo")
+			{
+				contadorEnfermos++;
+			}
+			else if(estadoClinico == "internado")
+			{
+				contadorInternados++;
+			}
+			else if(estadoClinico == "adopcion")
+			{
+				contadorAdopcion++;
+			}
+
+
+
+			if(contadorEnfermos < contadorAdopcion && contadorEnfermos < contadorInternados){
+
+				menorEstadoMascota = "Enfermo";
+			}
+			else if (contadorAdopcion < contadorEnfermos && contadorAdopcion < contadorInternados){
+				
+				menorEstadoMascota = "Adopcion";
+			}
+			else if (contadorInternados < contadorEnfermos && contadorInternados < contadorAdopcion){
+				
+				menorEstadoMascota = "Internado";
+			}
+
+
+			
+			if(tipoPelaje == "sin pelo" && flagMinTemperatura == true)
+			{
+				minTemperatura = temperaturaCorporal;
+				tipoMascotaMinTemp = tipoMascota;
+				flagMinTemperatura = false;
+			}
+			else if(temperaturaCorporal < minTemperatura){
+					
+				minTemperatura = temperaturaCorporal;
+				tipoMascotaMinTemp = tipoMascota;
+			}
+
+			
+			if(flagMaxTemp == true)
+			{
+				maxTemperatura = temperaturaCorporal;
+				tipoMascotaMayorTemp = tipoMascota;
+				flagMaxTemp = false;
+			}
+			else if(temperaturaCorporal > maxTemperatura)
+			{	
+				maxTemperatura = temperaturaCorporal;
+				tipoMascotaMayorTemp = tipoMascota;
+			}
 		}
-
-		
-		if(flagMaxTemp == true)
-		{
-			maxTemperatura = temperaturaCorporal;
-			tipoMascotaMayorTemp = tipoMascota;
-			flagMaxTemp = false;
-		}
-		else if(temperaturaCorporal > maxTemperatura)
-		{	
-			maxTemperatura = temperaturaCorporal;
-			tipoMascotaMayorTemp = tipoMascota;
-		}
-
-
-		
-		
-		
-		document.write("Mascota " + tipoMascota + "<br>");
-		document.write("Pelaje " + tipoPelaje + "<br>");
-		document.write("Edad " + edadMascota + "<br>");
-		document.write("Nombre " + nombreMascota + "<br>");
-		document.write("Raza " + razaMascota + "<br>");
-		document.write("Peso " + pesoMascota + "<br>");
-		document.write("Estado " + estadoClinico + "<br>");
-		document.write("Temperatura " + temperaturaCorporal + "<br>");
-
-		document.write("Perro mas pesado " + perroMasPesado + "<br>");
-		document.write("Enfermos " + contadorEnfermos + "<br>");
-		document.write("Nombre Otra Cosa " + ultimoNombreOtraCosa + "<br>");
-
-		document.write("Min Temp Sin Pelo " + tipoMascotaMinTemp + "<br>");
-
-		document.write("Animal con mayor temp " + tipoMascotaMayorTemp + "<br>");
-
-		document.write("Menor cantidad Estado Clinico " + menorEstadoMascota + "<br>");
-
-		document.write("Nombre gato liviano " + nombreGatoLiviano + "<br>");
-		document.write("Raza gato mas liviano " + razaGatoLiviano + "<br>");
-	}
+		while(confirm(continuar));
 
     porcentajesEnfermos = contadorEnfermos * 100 / totalMascotas;
-    porcentajePerrosGatos = contadorPerrosGatos * 100 / totalMascotas;
+	porcentajePerrosGatos = contadorPerrosGatos * 100 / totalMascotas;
+	
 
-	document.write("Promedio Enfermos " + porcentajeEnfermos + "<br>");
-	document.write("Promedio Perros y Gatos " + porcentajePerrosGatos + "<br>");
+	document.write("Mascota : " + tipoMascota + "<br>");
+	document.write("Pelaje : " + tipoPelaje + "<br>");
+	document.write("Edad : " + edadMascota + "<br>");
+	document.write("Nombre : " + nombreMascota + "<br>");
+	document.write("Raza : " + razaMascota + "<br>");
+	document.write("Peso : " + pesoMascota + " grs" + "<br>");
+	document.write("Estado : " + estadoClinico + "<br>");
+	document.write("Temperatura : " + temperaturaCorporal + " grados" + "<br>");
+	document.write("Perro mas pesado : " + perroMasPesado + "<br>");
+	document.write("Enfermos " + contadorEnfermos + "<br>");
+	document.write("Nombre Tipo Otra Cosa : " + ultimoNombreOtraCosa + "<br>");
+	document.write("Mascota minima temperatura sin pelo : " + tipoMascotaMinTemp + "<br>");
+	document.write("Mascota con mayor temperatura : " + tipoMascotaMayorTemp + "<br>");
+	document.write("Menor cantidad Estado Clinico " + menorEstadoMascota + "<br>");
+	document.write("Nombre gato mas liviano " + nombreGatoLiviano + "<br>");
+	document.write("Raza gato mas liviano " + razaGatoLiviano + "<br>");
+	document.write("Porcentaje Enfermos " + porcentajeEnfermos + "%" + "<br>");
+	document.write("Porcentaje Perros y Gatos " + porcentajePerrosGatos + " %" + "<br>");
 	document.write("Promedio peso de mascotas " + promedioPesoMascotas + "<br>");
 }
